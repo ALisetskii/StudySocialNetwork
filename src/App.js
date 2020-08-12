@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, withRouter} from "react-router-dom";
 
 import UsersContainer from "./components/Users/UsersContainer";
 
@@ -66,12 +66,15 @@ let AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 const SamuraiJSApp = (props) => {
-    return <BrowserRouter>
+    return (
+        /*<HashRouter> for github*/
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
+   {/* </HashRouter>*/}
     </BrowserRouter>
-
+)
 }
 
 
