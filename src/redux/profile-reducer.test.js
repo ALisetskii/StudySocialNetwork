@@ -10,15 +10,15 @@ let state = {
     ],
     newPostText: 'it-kamasutra.com',
     profile: null,
-    status:''
+    status: ''
 };
 
 it('length of posts should be incrimented', () => {
     // 1. test data
-    let action =addPostActionCreator('kalamala')
+    let action = addPostActionCreator('kalamala')
 
     // 2. action
-    let newState = profileReducer(state,action)
+    let newState = profileReducer(state, action)
 
     // 3. expectation
 
@@ -28,10 +28,10 @@ it('length of posts should be incrimented', () => {
 
 it('correct message of new post', () => {
     // 1. test data
-    let action =addPostActionCreator('kalamala')
+    let action = addPostActionCreator('kalamala')
 
     // 2. action
-    let newState = profileReducer(state,action)
+    let newState = profileReducer(state, action)
 
     // 3. expectation
 
@@ -41,10 +41,10 @@ it('correct message of new post', () => {
 
 it('after deleting length should decrease', () => {
     // 1. test data
-    let action =deletepost(1)
+    let action = deletepost(1)
 
     // 2. action
-    let newState = profileReducer(state,action)
+    let newState = profileReducer(state, action)
 
     // 3. expectation
 
@@ -54,10 +54,10 @@ it('after deleting length should decrease', () => {
 
 it('after deleting length should not change if postId is incorrect', () => {
     // 1. test data
-    let action =deletepost(1111)
+    let action = deletepost(1111)
 
     // 2. action
-    let newState = profileReducer(state,action)
+    let newState = profileReducer(state, action)
 
     // 3. expectation
 

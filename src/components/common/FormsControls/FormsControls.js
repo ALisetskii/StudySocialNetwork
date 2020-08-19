@@ -29,7 +29,7 @@ export const Input = ({input,meta,...props}) => {
     )
 }*/
 
-const FormControl = ({input, meta:{touched,error}, children, ...props}) => {
+const FormControl = ({input, meta: {touched, error}, children, ...props}) => {
     const hasError = touched && error;
     return (
         <div className={s.formControl + " " + (hasError ? s.error : "")}>
@@ -74,14 +74,14 @@ const Textarea = Element("textarea");
 Все работает!)*/
 
 
-export const createField = (placeholder, name, component, validators,props ={},text='') => {
-   return <div>
-    <Field placeholder={placeholder}
-           name={name}
-           component={component}
-           validate={validators}
-           {...props}
-    />{text}
+export const createField = (placeholder, name, component, validators, props = {}, text = '') => {
+    return <div>
+        <Field placeholder={placeholder}
+               name={name}
+               component={component}
+               validate={validators}
+               {...props}
+        />{text}
     </div>
 }
 

@@ -19,7 +19,7 @@ let initialState = {
     newPostText: 'it-kamasutra.com',
     profile: null,
     status: '',
-    profileUpdateStatus:'none' // доделать передачу ошибки из формы ProfileDataForm
+    profileUpdateStatus: 'none' // доделать передачу ошибки из формы ProfileDataForm
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -80,9 +80,15 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    let response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
+    try {
+
+
+        let response = await profileAPI.updateStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    } catch (error) {
+        //error.message отобразить
     }
 }
 export const savePhoto = (file) => async (dispatch) => {
@@ -98,7 +104,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
-       // {'contacts':{'facebook': response.data.messages[0]}}
+        // {'contacts':{'facebook': response.data.messages[0]}}
         dispatch(stopSubmit('edit-profile', {_error: response.data.messages[0]}))
         return Promise.reject()
     }

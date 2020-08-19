@@ -7,7 +7,9 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 
 
     return <form onSubmit={handleSubmit}>
-        <div><button >save</button></div>
+        <div>
+            <button>save</button>
+        </div>
         {error && <div className={s.formSummaryError}>
             {error}
         </div>}
@@ -19,7 +21,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
             <b> Looking for a job:</b>
             {createField('LookingForaAJob',
                 'lookingForaAJob',
-                Input, [],{type:'checkbox'})}
+                Input, [], {type: 'checkbox'})}
         </div>
 
 
@@ -34,7 +36,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         </div>
         <div>
             <b> Contacts:</b>{Object.keys(profile.contacts).map(key => {
-            return <div className={s.contact} key={key} >
+            return <div className={s.contact} key={key}>
                 <b>{key}:{createField(key, 'contacts.' + key, Input, [])}</b>
             </div>
         })}

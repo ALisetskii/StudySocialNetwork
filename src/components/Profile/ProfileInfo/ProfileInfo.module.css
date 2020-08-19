@@ -2,15 +2,15 @@
     padding: 10px;
 }
 
-.mainPhoto{
+.mainPhoto {
     max-width: 200px;
 }
 
-.contact{
-    padding-left:10px;
+.contact {
+    padding-left: 10px;
 }
 
-.formSummaryError{
+.formSummaryError {
     border: solid red 2px;
     padding: 5px;
     color: crimson;

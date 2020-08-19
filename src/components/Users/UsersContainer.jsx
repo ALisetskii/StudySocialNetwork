@@ -17,30 +17,29 @@ import {
 } from "../../redux/users-selectors";
 
 
-
 class UsersContainer extends React.Component {
     componentDidMount() {
-        const {currentPage,pageSize}=this.props
+        const {currentPage, pageSize} = this.props
         this.props.requestUsers(currentPage, pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        const {pageSize}=this.props
+        const {pageSize} = this.props
         this.props.requestUsers(pageNumber, pageSize);
     }
 
     render() {
         return <>
-            { this.props.isFetching ? <Preloader /> : null }
+            {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
-                        pageSize={this.props.pageSize}
-                        currentPage={this.props.currentPage}
-                        onPageChanged={this.onPageChanged}
-                        users={this.props.users}
-                        follow={this.props.follow}
-                        unfollow={this.props.unfollow}
-                        followingInProgress={this.props.followingInProgress}
-             />
+                   pageSize={this.props.pageSize}
+                   currentPage={this.props.currentPage}
+                   onPageChanged={this.onPageChanged}
+                   users={this.props.users}
+                   follow={this.props.follow}
+                   unfollow={this.props.unfollow}
+                   followingInProgress={this.props.followingInProgress}
+            />
         </>
     }
 }
@@ -69,5 +68,5 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers })
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers})
 )(UsersContainer)

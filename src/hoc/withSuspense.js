@@ -10,9 +10,9 @@ let mapStateToPropsForRedirect = (state) => ({
 export const withSuspense = (Component) => {
 
 
-    return (props)=>{
-        return <Suspense fallback={<div><Preloader /></div>}>
-        <Component {...props}/>
+    return (props) => {
+        return <Suspense fallback={<div><Preloader/></div>}>
+            <Component {...props}/>
         </Suspense>
     }
 
