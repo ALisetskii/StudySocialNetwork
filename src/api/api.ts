@@ -71,13 +71,13 @@ export const authAPI = {
 export const profileAPI = {
 
     getProfile(userId: number) {
-        return instance.get(`profile/` + userId);
+        return instance.get(`profile/` + userId).then(res => res.data);
     },
     getStatus(userId: number) {
-        return instance.get(`profile/status/` + userId);
+        return instance.get(`profile/status/` + userId).then(res => res.data);
     },
     updateStatus(status: string) {
-        return instance.put(`profile/status`, {status: status});
+        return instance.put(`profile/status`, {status: status}).then(res => res.data);
     },
     savePhoto(photoFile: any) {
         const formData = new FormData();
@@ -88,10 +88,10 @@ export const profileAPI = {
                     'Content-Type': 'multipart/form-data'
                 }
             }
-        );
+        ).then(res => res.data)
     },
     saveProfile(profile: ProfileType) {
-        return instance.put(`profile/`, profile);
+        return instance.put(`profile/`, profile).then(res => res.data);
     }
 }
 export const securityAPI = {
